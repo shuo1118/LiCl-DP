@@ -1,0 +1,55 @@
+ Input  warning : gamma_only_local algorithm is not used.
+ In SCAN_BEGIN, can't find: LATTICE_PARAMETERS block.
+ AUTO_SET NBANDS to 0
+ AUTO_SET NBANDS to 193
+      Processor           Atom
+              1             20
+              2             20
+              3             21
+              4             22
+              5             22
+              6             20
+              7             21
+              8             22
+              9             23
+             10             23
+             11             22
+             12             22
+             13             22
+             14             22
+             15             20
+             16             20
+                            startmag_type = 2
+                       charge from rho_at = 2.88725
+                         charge should be = 3
+                       charge from rho_at = 6.99532
+                         charge should be = 7
+
+ SETUP ATOMIC RHO FOR SPIN 1
+                 Electron number from rho = 320
+           total electron number from rho = 320
+                                should be = 320
+                 charge before normalized = 320
+                  charge after normalized = 320
+                 charge before normalized = 320.000109196391
+                  charge after normalized = 320
+                 charge before normalized = 320.000134530509
+                  charge after normalized = 320
+                 charge before normalized = 320.000144556765
+                  charge after normalized = 320
+                 charge before normalized = 320.000145871542
+                  charge after normalized = 320
+                 charge before normalized = 320.000146137632
+                  charge after normalized = 320
+                 charge before normalized = 320.000146013247
+                  charge after normalized = 320
+                 charge before normalized = 320.00014603074
+                  charge after normalized = 320
+                 charge before normalized = 320.000146026507
+                  charge after normalized = 320
+                 charge before normalized = 320.000146027932
+                  charge after normalized = 320
+                 charge before normalized = 320.000146027814
+                  charge after normalized = 320
+                 charge before normalized = 320.000146027766
+                  charge after normalized = 320
