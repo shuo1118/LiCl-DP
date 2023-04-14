@@ -42,7 +42,7 @@ ex4
 - `param.json` 是运行当前任务的 DP-GEN 设置。
 - `machine.json` 是一个任务调度程序，其中设置了计算机环境和资源要求。
 
-本教程采用DeePMD-kit(2.1.5),AVACUS(3.0)和DP-GEN(0.11.0)程序完成。
+本教程采用DeePMD-kit(2.1.5),AVACUS(3.1.0)和DP-GEN(0.11.0)程序完成。
 
 ## 练习
 
