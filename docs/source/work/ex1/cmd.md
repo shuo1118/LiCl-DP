@@ -29,7 +29,7 @@ tar zxvf work.tar.gz
 
 ## 练习
 
-### LiCl 熔体 LAMMPS MD模拟输入文件
+### LAMMPS MD模拟输入文件
 
 下面是一个 LiCl 熔体 LAMMPS MD模拟控制文件的示例：
 
@@ -157,7 +157,7 @@ Atoms  # charge
 
 后面一部分是原子的位置和电荷信息：每行依次表示原子的ID、类型、电荷以及在 x、y、z 三个方向上的坐标。注意，此处电荷都是0.0，我们可以在in.licl中重新规定电荷。
 
-### 运行LiCl熔体的LAMMPS MD模拟 
+### 运行LAMMPS MD模拟 
 
 在了解in.licl和licl.data文件后，我们可以执行以下命令以启动LiCl熔体的MD模拟：
 
