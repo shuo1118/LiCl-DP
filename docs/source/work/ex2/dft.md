@@ -25,7 +25,7 @@ tar zxvf work.tar.gz
 - *.upf：包含了原子的赝势信息；
 - *.orb：包含了原子轨道的数值表示。
 
-本教程采用 ABACUS v3.0 完成。
+本教程采用 ABACUS v3.1.0 完成。
 
 ## 练习
 
