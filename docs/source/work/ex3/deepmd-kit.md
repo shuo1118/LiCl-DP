@@ -338,10 +338,10 @@ $ cp ../01.train/licl-compress.pb ./
 
 ```bash
 $ ls
-conf.lmp  licl-compress.pb  in.licl
+licl.data  licl-compress.pb  in.licl
 ```
 
-其中 conf.lmp 给出了LiCl熔体 MD 模拟的初始配置，文件 in.licl 是 lammps 输入脚本。 可以检查 in.licl 并发现它是一个用于 MD 模拟的相当标准的 LAMMPS 输入文件，与ex1中的 in.licl 文件相比，在原子类型和势函数参数设置上略有不同：
+其中 licl.data 给出了LiCl熔体 MD 模拟的初始配置，文件 in.licl 是 lammps 输入脚本。 可以检查 in.licl 并发现它是一个用于 MD 模拟的相当标准的 LAMMPS 输入文件，与ex1中的 in.licl 文件相比，在原子类型和势函数参数设置上略有不同：
 
 ```bash
 atom_style  atomic
