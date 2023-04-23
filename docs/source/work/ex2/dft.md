@@ -220,7 +220,7 @@ mixing_beta	0.4
 calculation     md             # calculation：计算类型，这里选择分子动力学（md）
 cal_force       1              
 cal_stress      1              
-md_nstep        500            # md_nstep：分子动力学模拟的总步数，设为1000
+md_nstep        500            # md_nstep：分子动力学模拟的总步数，设为500
 md_type         1              # md_type：模拟类型，这里选择NVT系综
 md_dt           1              # md_dt：时间步长，设为1
 md_tfirst       900            # md_tfirst：目标温度，设为900 K
