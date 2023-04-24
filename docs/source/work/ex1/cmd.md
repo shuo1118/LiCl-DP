@@ -12,7 +12,7 @@
 
 ## 资源
 
-在本教程中，我们以LiCl熔体分子为例,进行经典分子动力学模拟。我们已经在`work/ex4`中准备了需要的文件。
+在本教程中，我们以LiCl熔体分子为例,进行经典分子动力学模拟。我们已经在`work/ex1`中准备了需要的文件。
 ```
 wget --content-disposition https://github.com/LiangWenshuo1118/LiCl/raw/main/work.tar.gz
 tar zxvf work.tar.gz
