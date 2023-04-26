@@ -107,6 +107,7 @@ jump            in.licl_npt
 ```python
 import numpy as np
 
+# 计算指定列的平均值
 def calculate_mean(file_name, column_name):
     with open(file_name, 'r') as file:
         lines = file.readlines()
@@ -117,7 +118,7 @@ def calculate_mean(file_name, column_name):
     column_index = lines[step_line].split().index(column_name)
     data = [float(line.split()[column_index]) for line in lines[step_line+1:loop_line]]
 
-    mean = sum(data[2001:]) / len(data[2001:])      #skip the first 200000 md steps
+    mean = sum(data[2001:]) / len(data[2001:])      # 计算平均值时跳过前 200000 md 步
 
     return mean
 
