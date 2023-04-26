@@ -637,21 +637,21 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 
-for i in range(0,3):    # Specify the number of iterations
+for i in range(0,3):       # 指定迭代的轮数
     max_devi_f_values = []
-    for j in range(20):    # 20 LAMMPS tasks in iter*/01.model_devi
-        directory = "./iter.{:06d}/01.model_devi/task.000.{:06d}".format(i, j%20)
+    for j in range(20):    # 在iter*/01.model_devi中有20个LAMMPS任务
+        directory = "./iter.{:06d}/01.model_devi/task.000.{:06d}".format(i, j)
         file_path = os.path.join(directory, "model_devi.out")
         data = np.genfromtxt(file_path, skip_header=1, usecols=4)
         max_devi_f_values.append(data)
 
-    # Convert the list to a numpy array
+    # 把列表转换成numpy数组
     max_devi_f_values = np.concatenate(max_devi_f_values)
 
-    # Use numpy.histogram() to calculate the frequency of each value
+    # 使用numpy.histogram()计算max_devi_f在每个统计区间的频率
     hist, bin_edges = np.histogram(max_devi_f_values, range=(0, 0.2), bins=100)
 
-    # Normalize the frequency to percentage
+    # 把频率转换成百分数
     hist = hist / len(max_devi_f_values) * 100
 
     # Use matplotlib.pyplot.plot() to plot the frequency of each value
