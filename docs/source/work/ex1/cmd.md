@@ -218,7 +218,7 @@ import matplotlib.pyplot as plt
 
 data = np.loadtxt('licl.msd', skiprows=2)        # 加载数据，跳过文件中的注释行(前三行)
 
-time = data[:, 0]                                # 数据分列
+time = data[:, 0]                                # 数据按列分割
 msd1 = data[:, 1]
 msd2 = data[:, 2]
 
