@@ -179,16 +179,16 @@ lmp -i in.licl
 import numpy as np
 import matplotlib.pyplot as plt
 
-nbins = 100                         # 计算RDF使用的统计区间个数
+nbins = 100                          # 计算RDF使用的统计区间个数
 
-with open("licl.rdf", "r") as f:    # 逐行读取"licl.rdf"的文件，忽略文件中的注释行(前三行)
+with open("licl.rdf", "r") as f:     # 逐行读取"licl.rdf"的文件，忽略文件中的注释行(前三行)
     lines = f.readlines()           
     lines = lines[3:]                
 
-    data = np.zeros((nbins, 7))     # 创建一个二维数组data，用于存储RDF数据
+    data = np.zeros((nbins, 7))      # 创建一个二维数组data，用于存储RDF数据
     count = 0                       
 
-    for line in lines:              # 对相同统计区间的数据进行累加，并计算累加次数
+    for line in lines:               # 对相同统计区间的数据进行累加，并计算累加次数
         nums = line.split()         
         if len(nums) == 8:          
             for i in range(1, 8):   
@@ -196,7 +196,7 @@ with open("licl.rdf", "r") as f:    # 逐行读取"licl.rdf"的文件，忽略�
         if len(nums) == 2:
             count += 1
 
-ave_rdf = data / count              # 计算每个统计区间的平均计数，保存到文件"ave_rdf.txt"中
+ave_rdf = data / count               # 计算每个统计区间的平均计数，保存到文件"ave_rdf.txt"中
 np.savetxt('ave_rdf.txt',ave_rdf)   
 
 labels = ['Li-Li', 'Li-Cl', 'Cl-Cl'] # 绘制并保存RDF图像
@@ -216,21 +216,21 @@ plt.savefig('rdf.png', dpi=300)
 import numpy as np
 import matplotlib.pyplot as plt
 
-data = np.loadtxt('licl.msd', skiprows=2)
+data = np.loadtxt('licl.msd', skiprows=2)        # 加载数据，跳过文件中的注释行(前三行)
 
-time = data[:, 0]
+time = data[:, 0]                                # 数据分列
 msd1 = data[:, 1]
 msd2 = data[:, 2]
 
-plt.plot(time/1000, msd1, 'b-', label='Li+') # 1fs= 1/1000ps
+plt.plot(time/1000, msd1, 'b-', label='Li+')     # 绘制MSD曲线；1fs= 1/1000ps
 plt.plot(time/1000, msd2, 'r-', label='Cl-')
 plt.xlabel('time(ps)') 
 plt.ylabel('MSD(A^2)')
 
-slope1, residuals = np.polyfit(time, msd1, 1)
+slope1, residuals = np.polyfit(time, msd1, 1)    # 求MSD曲线斜率
 slope2, residuals = np.polyfit(time, msd2, 1)
 
-Diff1 = slope1/6 * 1e-5  # D=1/6*slope; 1 A^2/fs = 1e-5 m^2/s
+Diff1 = slope1/6 * 1e-5                          # D=1/6*slope; 1 A^2/fs = 1e-5 m^2/s
 Diff2 = slope2/6 * 1e-5
 
 print(f"Diffusion Coefficients of Li+: {Diff1} m^2/s")
