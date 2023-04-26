@@ -179,33 +179,33 @@ lmp -i in.licl
 import numpy as np
 import matplotlib.pyplot as plt
 
-nbins = 100 # define the number of bins in the RDF
+nbins = 100                         # 计算RDF使用的统计区间个数
 
-with open("licl.rdf", "r") as f: # read the licl.rdf file
-    lines = f.readlines()
-    lines = lines[3:]
+with open("licl.rdf", "r") as f:    # 逐行读取"licl.rdf"的文件，忽略文件中的注释行(前三行)
+    lines = f.readlines()           
+    lines = lines[3:]                
 
-    data = np.zeros((nbins, 7))  
-    count = 0  
+    data = np.zeros((nbins, 7))     # 创建一个二维数组data，用于存储RDF数据
+    count = 0                       
 
-    for line in lines:  
-        nums = line.split()      
-        if len(nums) == 8:  
-            for i in range(1, 8):  
-                data[int(nums[0])-1, i-1] += float(nums[i])  # accumulatie data for each bin  
-        if len(nums) == 2:  
-            count += 1         # count the number of accumulations for each bin
-       
-ave_rdf = data / count  # calculate the averaged RDF data
-np.savetxt('ave_rdf.txt',ave_rdf)
+    for line in lines:              # 对相同统计区间的数据进行累加，并计算累加次数
+        nums = line.split()         
+        if len(nums) == 8:          
+            for i in range(1, 8):   
+                data[int(nums[0])-1, i-1] += float(nums[i])  
+        if len(nums) == 2:
+            count += 1
 
-labels = ['Li-Li', 'Li-Cl', 'Cl-Cl']
-for i, label in zip(range(1, 7, 2), labels):
-    plt.plot(ave_rdf[:, 0], ave_rdf[:, i], label=label)
-plt.xlabel('r/Å')
-plt.ylabel('g(r)')
-plt.legend()
-plt.savefig('rdf.png', dpi=300)
+ave_rdf = data / count              # 计算每个统计区间的平均计数，保存到文件"ave_rdf.txt"中
+np.savetxt('ave_rdf.txt',ave_rdf)   
+
+labels = ['Li-Li', 'Li-Cl', 'Cl-Cl'] # 绘制并保存RDF图像
+for i, label in zip(range(1, 7, 2), labels):             
+    plt.plot(ave_rdf[:, 0], ave_rdf[:, i], label=label)  
+plt.xlabel('r/Å')                                        
+plt.ylabel('g(r)')                                       
+plt.legend()                                             
+plt.savefig('rdf.png', dpi=300) 
 ```
 正常情况下，我们将获得类似于下面的图象：
 
