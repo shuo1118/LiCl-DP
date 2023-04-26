@@ -272,7 +272,8 @@ INDEX    LABEL    POSITIONS    FORCE (eV/Angstrom)
 import numpy as np
 import matplotlib.pyplot as plt
 
-def get_atom_positions(file_path,nLi,nCl):
+# 读取轨迹文件，返回Li和Cl坐标数组
+def get_atom_positions(file_path,nLi,nCl):                
     Li, Cl = [], []
     with open(file_path, 'r') as file:
         for line in file:
@@ -282,7 +283,8 @@ def get_atom_positions(file_path,nLi,nCl):
                 Cl.append([float(line.split()[2]), float(line.split()[3]), float(line.split()[4])])
     return np.array(Li).reshape(-1, nLi, 3), np.array(Cl).reshape(-1, nCl, 3)
 
-def get_gr(x, y, L): 
+# 根据Li和Cl坐标数组计算RDF
+def get_gr(x, y, L):                                     
     batchsize, n, dim = x.shape[0], x.shape[1], x.shape[2]
     
     i,j = np.triu_indices(n, k=1)
@@ -299,10 +301,12 @@ def get_gr(x, y, L):
     h_id = 4/3*np.pi*n/(L**3)* ((rmesh+dr)**3 - rmesh**3 )
     return rmesh, hist/h_id
 
+# 指定体系基本信息，调用get_atom_positions()函数获得坐标数组
 L = 11.858
-nLi,nCl=32,32
+nLi,nCl=32,32  
 Li, Cl = get_atom_positions('./OUT.ABACUS/MD_dump',nLi,nCl)
 
+# 调用get_gr()计算RDF，并绘制和保存RDF
 atom_pairs = {'Li-Cl': (Li, Cl),'Li-Li': (Li, Li),'Cl-Cl': (Cl, Cl)}
 for label, (x, y) in atom_pairs.items():
     rmesh, gr = get_gr(x, y, L)
