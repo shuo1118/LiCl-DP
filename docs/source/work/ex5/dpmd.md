@@ -107,11 +107,12 @@ jump            in.licl_npt
 ```python
 import numpy as np
 
-# 计算指定列的平均值
+# 计算指文件某一列的平均值
 def calculate_mean(file_name, column_name):
     with open(file_name, 'r') as file:
         lines = file.readlines()
-
+    
+    # 确定thermo_style开始和结束的行
     step_line = next(i for i, line in enumerate(lines) if 'Step' in line)
     loop_line = next(i for i, line in enumerate(lines) if 'Loop' in line)
 
